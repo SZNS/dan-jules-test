@@ -1,9 +1,12 @@
 # Express.js API Service
 
-This is a basic Express.js API service with two endpoints:
+This is a basic Express.js API service with five endpoints:
 
-- `/add` — Adds two numbers provided as query parameters `a` and `b`.
-- `/subtract` — Subtracts two numbers provided as query parameters `a` and `b`.
+- `/add` — Adds two numbers provided as query parameters `num_a` and `num_b`.
+- `/subtract` — Subtracts two numbers provided as query parameters `num_a` and `num_b`.
+- `/multiply` — Multiplies two numbers provided as query parameters `num_a` and `num_b`.
+- `/divide` — Divides two numbers provided as query parameters `num_a` and `num_b`.
+- `/negate` — Negates a number provided as query parameter `num_a`.
 
 ## Getting Started
 
@@ -26,7 +29,7 @@ The server will be available at `http://localhost:3000`.
 ### Add
 
 ```
-GET /add?a=2&b=3
+GET /add?num_a=2&num_b=3
 ```
 
 Response:
@@ -40,7 +43,7 @@ Response:
 ### Subtract
 
 ```
-GET /subtract?a=5&b=3
+GET /subtract?num_a=5&num_b=3
 ```
 
 Response:
@@ -48,6 +51,48 @@ Response:
 ```
 {
   "result": 2
+}
+```
+
+### Multiply
+
+```
+GET /multiply?num_a=4&num_b=3
+```
+
+Response:
+
+```
+{
+  "result": 12
+}
+```
+
+### Divide
+
+```
+GET /divide?num_a=10&num_b=2
+```
+
+Response:
+
+```
+{
+  "result": 5
+}
+```
+
+### Negate
+
+```
+GET /negate?num_a=7
+```
+
+Response:
+
+```
+{
+  "result": -7
 }
 ```
 
