@@ -49,6 +49,12 @@ app.get("/divide", (req, res) => {
   res.json({ result: a / b });
 });
 
+app.get("/negate", (req, res) => {
+  const a = parseFloat(req.query.a);
+
+  res.json({ result: a * -1 });
+});
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`API service listening at http://localhost:${port}`);

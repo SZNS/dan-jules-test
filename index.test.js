@@ -151,3 +151,29 @@ describe("GET /divide", () => {
     expect(res.body.error).toBe("Parameters a and b must be numbers.");
   });
 });
+
+describe("GET /negate", () => {
+  it("should negate a number", async () => {
+    // Test for negating a positive number
+    const res = await request(app).get("/negate?a=5");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.result).toBe(-5);
+
+    // Test for negating a negative number
+    const res2 = await request(app).get("/negate?a=-1");
+    expect(res2.statusCode).toBe(200);
+    expect(res2.body.result).toBe(1);
+  });
+
+  it("should return 400 if parameter is missing", async () => {
+    const res = await request(app).get("/negate");
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe("Parameters a and b must be numbers.");
+  });
+
+  it("should return 400 if parameter is not a number", async () => {
+    const res = await request(app).get("/negate?a=foo");
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe("Parameters a and b must be numbers.");
+  });
+});
